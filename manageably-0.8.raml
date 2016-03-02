@@ -1,0 +1,50 @@
+#%RAML 0.8
+---
+title: Manageably API
+version: v1
+baseUri: http://api.manageably.com/{version}/
+mediaType: application/json
+
+/projects:
+    displayName: Project
+    get:
+        description: Retrieve a list of projects.
+        responses:
+            200:
+                body:
+                    example: |
+                        {
+                            "status": 200,
+                            "data": [
+                                { "name": "AngularJS" },
+                                { "name": "React" },
+                                { "name": "Meteor" }
+                            ]
+                        }
+    post:
+        description: Create a new project.
+    /{projectId}:
+        uriParameters:
+            projectId:
+                description: The ID of a project.
+        get:
+            description: Retrieve the specified project.
+            responses:
+                200:
+                    body:
+                        example: |
+                            {
+                                "status": 200,
+                                "data": {
+                                    "name": "AngularJS"
+                                }
+                            }
+        put:
+            description: Update a project.
+        delete:
+            description: Delete a single project.
+        /developers:
+
+/developers:
+    displayName: Developer
+    /{developerId}:

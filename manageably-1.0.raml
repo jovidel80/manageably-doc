@@ -1,0 +1,77 @@
+#%RAML 1.0
+title: Manageably
+description: This is RESTful API for Manageably.
+version: 0.0.1
+baseUri: /manageably/{version}
+
+types:
+  Project:
+    properties:
+      name: string
+    example:
+      name: "AngularJS"
+  Employee:
+    properties:
+      name: string
+    example:
+      name: "John Doe"
+
+resourceTypes:
+  Collection:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: <<item>>[]
+    post:
+      body:
+        application/json:
+          type: <<item>>
+  Member:
+    delete:
+      responses:
+        204:
+    put:
+      body:
+        application/json:
+          type: <<item>>
+
+traits:
+    OrderBy:
+      queryParameters:
+        order:
+          enum:
+            - asc
+            - desc
+        orderBy:
+          type: string
+
+/projects:
+  displayName: Project
+  type: { Collection: {item : Project} }
+  get:
+    is: OrderBy
+    queryParameters:
+      type:
+        type: string
+  /{id}:
+    type: { Member: {item : Project} }
+    uriParameters:
+      id:
+        description: The ID of a project.
+    get:
+      description: Retrieve the specified project.
+      responses:
+        200:
+          body:
+            application/json:
+              type: Project[]
+
+/employees:
+  displayName: Employee
+  type: { Collection: {item : Employee} }
+  get:
+    is: OrderBy
+  /{id}:
+    type: { Member: {item : Employee} }

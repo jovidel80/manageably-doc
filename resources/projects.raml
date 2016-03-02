@@ -1,0 +1,30 @@
+title: Foo
+/projects:
+  displayName: Project
+  description: Collection of projects.
+  get:
+    description: Retrieve a list of projects.
+    queryParameters:
+      name:
+        type: string
+        description: Filter by name.
+  post:
+    description: Create a new project.
+  /{projectId}:
+    uriParameters:
+      projectId:
+        description: The ID of a project.
+    get:
+      description: Retrieve the specified project.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include ../schemas/project.schema.json
+              example: !include ../examples/project.example.json
+    put:
+      description: Update a project.
+    delete:
+      description: Delete a single project.
+    /developers:
+      get:
