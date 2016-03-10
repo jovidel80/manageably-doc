@@ -1,77 +1,155 @@
 #%RAML 1.0
-title: Manageably
+title: Manageably API
 description: This is RESTful API for Manageably.
-version: 0.0.1
-baseUri: /manageably/{version}
+version: v1
+baseUri: http://api.manageably.com/{version}
+protocols: [HTTP]
+mediaType: application/json
 
 types:
   Project:
+    description: A project.
+    type: object
     properties:
+      id: number
       name: string
+      startDate: date
+      endDate: date
     example:
-      name: "AngularJS"
+      id: 1
+      name: AngularJS
+      startDate: 1457558659
+      endDate: 1457558659
+
   Employee:
+    description: An employee.
+    type: object
     properties:
-      name: string
+      id: number
+      firstName: string
+      lastName: string
+      email: string
+      city: string
     example:
-      name: "John Doe"
+      id: 1
+      firstName: John
+      lastName: Doe
+      email: john.doe@mail.com
+      city: Salt Lake City
 
-resourceTypes:
-  Collection:
-    get:
-      responses:
-        200:
-          body:
-            application/json:
-              type: <<item>>[]
-    post:
-      body:
-        application/json:
-          type: <<item>>
-  Member:
-    delete:
-      responses:
-        204:
-    put:
-      body:
-        application/json:
-          type: <<item>>
+#resourceTypes:
+#  Collection:
+#    get:
+#      responses:
+#        200:
+#          body:
+#            application/json:
+#              type: <<item>>[]
+#    post:
+#      body:
+#        application/json:
+#          type: <<item>>
 
-traits:
-    OrderBy:
-      queryParameters:
-        order:
-          enum:
-            - asc
-            - desc
-        orderBy:
-          type: string
+#  Member:
+#    delete:
+#      responses:
+#        204:
+#    put:
+#      body:
+#        application/json:
+#          type: <<item>>
 
+#traits:
+#  OrderBy:
+#    queryParameters:
+#      order:
+#        enum:
+#          - asc
+#          - desc
+#      orderBy:
+#        type: string
+
+#/projects:
+#  displayName: Project
+#  type: { Collection: {item : Project} }
+
+#  get:
+    # is: OrderBy
+#    queryParameters:
+#      type:
+#        type: string
+
+#  /{id}:
+    #type: { Member: {item : Project} }
+    #uriParameters:
+    #  id:
+    #    description: The ID of a project.
+
+#    get:
+#      description: Retrieve the specified project.
+#      responses:
+#        200:
+#          body:
+#            application/json:
+#              type: Project[]
 /projects:
   displayName: Project
-  type: { Collection: {item : Project} }
+
   get:
-    is: OrderBy
-    queryParameters:
-      type:
-        type: string
+    description: Retrieve a list of projects.
+    responses:
+      200:
+        body:
+          application/json:
+            type: Project[]
+
+  post:
+    description: Create a new project.
+
   /{id}:
-    type: { Member: {item : Project} }
     uriParameters:
       id:
         description: The ID of a project.
+
     get:
       description: Retrieve the specified project.
       responses:
         200:
           body:
             application/json:
-              type: Project[]
+              type: Project
+              example:
+                id: 1
+                name: AngularJS
+                startDate: 1457558659
+                endDate: 1457558659
+
+    put:
+      description: Update a project.
+
+    delete:
+      description: Delete a single project.
 
 /employees:
   displayName: Employee
-  type: { Collection: {item : Employee} }
+
   get:
-    is: OrderBy
+    description: Retrieve a list of employees.
+    responses:
+      200:
+        body:
+          application/json:
+            type: Employee[]
+
   /{id}:
-    type: { Member: {item : Employee} }
+    uriParameters:
+      id:
+        description: The ID of an employee.
+
+    get:
+      description: Retrieve the specified employee.
+      responses:
+        200:
+          body:
+            application/json:
+              type: Employee
