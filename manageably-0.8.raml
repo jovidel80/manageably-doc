@@ -1,0 +1,81 @@
+#%RAML 0.8
+title: Manageably API
+version: v1
+baseUri: http://api.manageably.com/{version}
+protocols: [HTTP]
+mediaType: application/json
+
+schemas:
+  - Project: !include schemas/project.schema.json
+  - ProjectList: !include schemas/project-list.schema.json
+  - Employee: !include schemas/employee.schema.json
+
+/projects:
+  displayName: Projects
+  description: A collection of projects.
+
+  get:
+    description: Retrieve a list of projects.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: ProjectList
+            example: !include examples/project-list.example.json
+
+  post:
+    description: Create a new project.
+    body:
+      application/json:
+        schema: Project
+        example: !include examples/project.example.json
+
+  /{projectId}:
+    displayName: Project
+    description: A specific project, a member of the projects collection.
+    uriParameters:
+      projectId:
+        displayName: Project ID
+        description: The ID of a project.
+        type: number
+
+    get:
+      description: Retrieve the specified project.
+      responses:
+        200:
+          body:
+            application/json:
+              schema: Project
+              example: !include examples/project.example.json
+        404:
+          description: Project with specified ID does not exist.
+
+    put:
+      description: Update a project.
+
+    delete:
+      description: Delete a single project.
+
+# =========================================================
+
+/employees:
+  displayName: Employee
+
+  get:
+    description: Retrieve a list of employees.
+    responses:
+      200:
+        body:
+          application/json:
+
+  /{id}:
+    uriParameters:
+      id:
+        description: The ID of an employee.
+
+    get:
+      description: Retrieve the specified employee.
+      responses:
+        200:
+          body:
+            application/json:

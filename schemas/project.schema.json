@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "number",
+      "required": true
+    },
+    "endDate": {
+      "type": "number",
+      "required": false
+    }
+  }
+}

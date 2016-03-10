@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "Projects",
+  "description": "A collection of projects.",
+  "type": "array",
+  "items": {
+    "title": "Project",
+    "description": "A specific project.",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Project ID.",
+        "type": "number"
+      },
+      "name": {
+        "description": "Project name.",
+        "type": "string"
+      },
+      "startDate": {
+        "type": "number"
+      },
+      "endDate": {
+        "type": "number"
+      }
+    }
+  }
+}
