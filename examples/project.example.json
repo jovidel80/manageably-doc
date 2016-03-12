@@ -2,5 +2,6 @@
   "id": 1,
   "name": "Angular",
   "startDate": 1457558659,
-  "endDate": 1457558659
+  "endDate": 1457558659,
+  "active": true
 }

@@ -17,6 +17,10 @@
     "endDate": {
       "type": "number",
       "required": false
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
     }
   }
 }

@@ -1,0 +1,1 @@
+Manageably API is a RESTful API created for Manageably application. The main intention of this application is to help manage projects in IT company. It helps show current projects and employees assigned and what is more useful - helps find available resources in the future.
