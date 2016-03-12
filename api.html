@@ -24,33 +24,7 @@
     <span class="hljs-attr">"endDate"</span>: <span class="hljs-number">1457558659</span>
   }
 ]
-</code></pre></div></div><p class="documentation__endpoints__name"><span class="label label-success">post</span>/projects</p><p class="documentation__endpoints__description">Create a new project.</p><div class="row"><div class="col-md-8"></div><div class="col-md-4"></div></div><p class="documentation__endpoints__name"><span class="label label-primary">get</span>/projects/{projectId}</p><p class="documentation__endpoints__description">Retrieve the specified project.</p><div class="row"><div class="col-md-8"><table class="documentation__parameters table table-bordered table-striped"><thead><tr><th>name</th><th>description</th></tr></thead><tbody><tr><td>projectId</td><td>The ID of a project.</td></tr></tbody></table><h2 class="documentation__subheader">Schema</h2><pre><code>{
-  "$schema": "http://json-schema.org/draft-03/schema",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "number",
-      "required": true
-    },
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "startDate": {
-      "type": "number",
-      "required": true
-    },
-    "endDate": {
-      "type": "number",
-      "required": false
-    },
-    "active": {
-      "type": "boolean",
-      "required": true
-    }
-  }
-}
-</code></pre></div><div class="col-md-4"><h2 class="documentation__subheader">Example</h2><pre><code>{
+</code></pre></div></div><p class="documentation__endpoints__name"><span class="label label-success">post</span>/projects</p><p class="documentation__endpoints__description">Create a new project.</p><div class="row"><div class="col-md-8"></div><div class="col-md-4"></div></div><p class="documentation__endpoints__name"><span class="label label-primary">get</span>/projects/{projectId}</p><p class="documentation__endpoints__description">Retrieve the specified project.</p><div class="row"><div class="col-md-8"><table class="documentation__parameters table table-bordered table-striped"><thead><tr><th>name</th><th>description</th></tr></thead><tbody><tr><td>projectId</td><td>The ID of a project.</td></tr></tbody></table><h2 class="documentation__subheader">Response</h2><table class="documentation__parameters table table-bordered table-striped"><thead><tr><th>name</th><th>type</th><th>description</th></tr></thead><tbody><tr><td>id<span class="text-primary">*</span></td><td>number</td><td>The ID of a project.</td></tr><tr><td>name<span class="text-primary">*</span></td><td>string</td><td>The name of a project.</td></tr><tr><td>startDate<span class="text-primary">*</span></td><td>number</td><td>Date on which project starts.</td></tr><tr><td>endDate</td><td>number</td><td>Date on which project ends.</td></tr><tr><td>active<span class="text-primary">*</span></td><td>boolean</td><td>Informs if project is active or it is finished.</td></tr></tbody></table><!--pre--><!--    code !{endpoint.schema}--></div><div class="col-md-4"><h2 class="documentation__subheader">Example</h2><pre><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Angular"</span>,
   <span class="hljs-attr">"startDate"</span>: <span class="hljs-number">1457558659</span>,

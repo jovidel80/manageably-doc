@@ -1,24 +1,30 @@
 {
   "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "Project",
   "type": "object",
   "properties": {
     "id": {
+      "description": "The ID of a project.",
       "type": "number",
       "required": true
     },
     "name": {
+      "description": "The name of a project.",
       "type": "string",
       "required": true
     },
     "startDate": {
+      "description": "Date on which project starts.",
       "type": "number",
       "required": true
     },
     "endDate": {
+      "description": "Date on which project ends.",
       "type": "number",
       "required": false
     },
     "active": {
+      "description": "Informs if project is active or it is finished.",
       "type": "boolean",
       "required": true
     }
