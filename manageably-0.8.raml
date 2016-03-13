@@ -20,6 +20,13 @@ schemas:
 
   get:
     description: Retrieve a list of projects.
+    queryParameters:
+      page:
+        description: Page number.
+        type: integer
+      per_page:
+        description: Amount of items displayed per page.
+        type: integer
     responses:
       200:
         body:
@@ -60,10 +67,9 @@ schemas:
     delete:
       description: Delete a single project.
 
-# =========================================================
-
 /employees:
-  displayName: Employee
+  displayName: Employees
+  description: A collection of employees.
 
   get:
     description: Retrieve a list of employees.
@@ -72,10 +78,14 @@ schemas:
         body:
           application/json:
 
-  /{id}:
+  /{employeeId}:
+    displayName: Employee
+    description: A specific employee, a member of the employees collection.
     uriParameters:
-      id:
+      employeeId:
+        displayName: Employee ID
         description: The ID of an employee.
+        type: number
 
     get:
       description: Retrieve the specified employee.
