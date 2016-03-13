@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "title": "Employees",
+  "description": "A collection of employees.",
+  "type": "array",
+  "items": {
+    "title": "Employee",
+    "description": "A specific employee.",
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "The ID of an employee.",
+        "type": "number",
+        "required": true
+      },
+      "firstName": {
+        "description": "Employee's first name.",
+        "type": "string",
+        "required": true
+      },
+      "lastName": {
+        "description": "Employee's last name",
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+}

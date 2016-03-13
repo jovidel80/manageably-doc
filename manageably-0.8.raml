@@ -13,6 +13,7 @@ schemas:
   - Project: !include schemas/project.schema.json
   - ProjectList: !include schemas/project-list.schema.json
   - Employee: !include schemas/employee.schema.json
+  - EmployeeList: !include schemas/employee-list.schema.json
 
 /projects:
   displayName: Projects
@@ -40,6 +41,12 @@ schemas:
       application/json:
         schema: Project
         example: !include examples/project.example.json
+    responses:
+      201:
+        body:
+          application/json:
+            schema: Project
+            example: !include examples/project.example.json
 
   /{projectId}:
     displayName: Project
@@ -77,6 +84,8 @@ schemas:
       200:
         body:
           application/json:
+            schema: EmployeeList
+            example: !include examples/employee-list.example.json
 
   /{employeeId}:
     displayName: Employee
@@ -93,3 +102,5 @@ schemas:
         200:
           body:
             application/json:
+              schema: Employee
+              example: !include examples/employee.example.json
